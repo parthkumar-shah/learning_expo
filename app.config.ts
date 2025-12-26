@@ -1,9 +1,23 @@
 
 import { ConfigContext, ExpoConfig } from 'expo/config';
 
+const IS_DEV = process.env.APP_VARIANT === 'development';
+const IS_PREVIEW = process.env.APP_VARIANT === 'preview';
+
+const getUniqueIdentifier = () => {
+  if (IS_DEV) {
+    return 'com.parth.stickersmash.dev';
+  }
+
+  if (IS_PREVIEW) {
+    return 'com.parth.stickersmash.preview';
+  }
+
+  return 'com.parth.stickersmash';
+};
+
 export default ({ config }: ConfigContext): ExpoConfig => {
   const environment = (process.env.APP_ENV || 'development') as keyof typeof envConfig;
-
 
   const envConfig = {
       apiUrl: process.env.API_URL,
@@ -25,7 +39,7 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": envConfig.bundleIdentifier,
+      "bundleIdentifier": getUniqueIdentifier(),
     },
     "android": {
       "adaptiveIcon": {
@@ -36,7 +50,7 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": envConfig.bundleIdentifier,
+      "package": getUniqueIdentifier(),
     },
     "web": {
       "output": "static",

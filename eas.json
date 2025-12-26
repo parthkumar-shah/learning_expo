@@ -3,22 +3,47 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
+       "environment": "development",
       "android": {
         "buildType": "apk"
       },
       "env": {
-        "EXPO_PUBLIC_ENV": "development"
+        "APP_VARIANT": "development"
+      }
+    },
+   "development-release": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "environment": "development",
+      "android": {
+        "gradleCommand": ":app:assembleRelease",
+        "buildType": "apk"
+      },
+      "ios": {
+        "buildConfiguration": "Release"
+      },
+      "env": {
+        "APP_VARIANT": "development"
       }
     },
     "preview": {
       "distribution": "internal",
+       "environment": "preview",
+       "android": {
+        "gradleCommand": ":app:assembleRelease",
+        "buildType": "apk"
+      },
+      "ios": {
+        "buildConfiguration": "Release"
+      },
       "env": {
-        "EXPO_PUBLIC_ENV": "staging"
+        "APP_VARIANT": "preview"
       }
     },
     "production": {
+       "environment": "production",
       "env": {
-        "EXPO_PUBLIC_ENV": "production"
+        "APP_VARIANT": "production"
       }
     }
   },

@@ -22,7 +22,7 @@ export default ({ config }: ConfigContext): ExpoConfig => {
   const envConfig = {
       apiUrl: process.env.API_URL,
       bundleIdentifier: 'com.myapp.dev',
-      appName: process.env.APP_NAME,
+      appName: process.env.EXPO_PUBLIC_APP_NAME,
       scheme: 'myapp-dev',
       icon: './assets/icon-dev.png',
     };
@@ -31,7 +31,7 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     ...config,
     "name": envConfig.appName || "Learning App Live",
     "slug": "learning-app",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": envConfig.scheme,

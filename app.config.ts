@@ -17,7 +17,7 @@ const getUniqueIdentifier = () => {
 };
 
 export default ({ config }: ConfigContext): ExpoConfig => {
-  const environment = (process.env.APP_ENV || 'development') as keyof typeof envConfig;
+  const environment = (process.env.APP_VARIANT || 'development') as keyof typeof envConfig;
 
   const envConfig = {
       apiUrl: process.env.API_URL,

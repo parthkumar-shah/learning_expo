@@ -6,6 +6,7 @@
     "start": "eas env:pull && EXPO_NO_TELEMETRY=1 npx expo start --clear --dev-client",
     "start:dev": "eas env:pull --environment=development && EXPO_NO_TELEMETRY=1 expo start --clear --dev-client",
     "reset-project": "node ./scripts/reset-project.js",
+    "build:dev:android": "eas build --platform android --profile development --local --clear-cache",
     "build:dev-release:android": "eas build --platform android --profile development-release",
     "build:dev-release:local": "eas build --platform android --profile development-release --local --clear-cache",
     "build:preview:android": "eas build --platform android --profile preview",

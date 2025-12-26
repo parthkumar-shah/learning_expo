@@ -78,7 +78,7 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     extra: {
       apiUrl: envConfig.apiUrl,
       environment: environment,
-      appName: process.env.APP_NAME,
+      appName: process.env.EXPO_PUBLIC_APP_NAME,
       "eas": {
         "projectId": "763181f6-b241-4f37-bb66-c014bc00bea7"
       }
